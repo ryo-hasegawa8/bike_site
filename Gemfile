@@ -52,5 +52,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'devise'
+gem 'omniauth-twitter'
 gem 'paperclip'
 gem 'geocoder'
