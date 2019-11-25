@@ -6,6 +6,12 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.7'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'devise'
+gem 'omniauth-twitter'
+gem 'paperclip'
+gem 'geocoder'
 gem 'sqlite3'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -49,9 +55,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bootstrap-sass'
-gem 'jquery-rails'
-gem 'devise'
-gem 'omniauth-twitter'
-gem 'paperclip'
-gem 'geocoder'
