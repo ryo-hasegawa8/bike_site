@@ -15,6 +15,7 @@ gem 'geocoder'
 gem 'sqlite3'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
+gem 'carrierwave'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -41,6 +42,7 @@ group :development, :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'rubocop-airbnb'
+  gem 'faker'
 end
 
 group :development do

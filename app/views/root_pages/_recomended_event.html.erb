@@ -1,0 +1,50 @@
+<section class="mainContent">
+  <div class="container">
+    <div class="row featuredCollection">
+      <div class="col-sm-12">
+        <div class="page-header">
+          <h4>人気イベント</h4>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12 r_event_content">
+        <%= link_to (root_pages_show_path) do %>
+          <div class="thumbnail" onclick="location.href='/root_pages/show';">
+            <div class="imageWrapper">
+              <%= image_tag 'バイク写真・Cool Woman.jpeg', :size =>'300x400' %>
+            </div>
+            <div class="event_title">Bike event 1</div>
+            <div class="event_subtitle">
+              <h4>バイクさぶタイトル</h4>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-sm-4 col-xs-12 r_event_content">
+        <%= link_to (root_pages_show_path) do %>
+          <div class="thumbnail" onclick="location.href='/root_pages/show';">
+            <div class="imageWrapper">
+              <%= image_tag 'バイク写真・Cool Woman.jpeg', :size =>'300x400' %>
+            </div>
+            <div class="event_title">Bike event 2</div>
+            <div class="event_subtitle">
+              <h4>バイクさぶタイトル</h4>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-sm-4 col-xs-12 r_event_content">
+        <%= link_to (root_pages_show_path) do %>
+          <div class="thumbnail" onclick="location.href='/root_pages/show';">
+            <div class="imageWrapper">
+              <%= image_tag 'バイク写真・Cool Woman.jpeg', :size =>'300x400' %>
+            </div>
+            <div class="event_title">Bike event 3</div>
+            <div class="event_subtitle">
+              <h4>バイクさぶタイトル</h4>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
