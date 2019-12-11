@@ -27,6 +27,10 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <%= render "event_sort" %>
-  <%= render "recomended_event" %>
+  <div class="row main-event-lists">
+    <%= render "event_sort" %>
+    <%= render "event_lists" %>
+  </div>
+
+  <%= render "recomended_event", events: @events %>
 </main>

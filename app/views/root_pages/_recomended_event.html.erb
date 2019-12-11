@@ -48,3 +48,27 @@
     </div>
   </div>
 </section>
+
+<div class="col-xs-12">
+  <div class="page-header">
+    <h4>新着イベント</h4>
+  </div>
+</div>
+<div class="row productsContent">
+  <% events.each do |event| %>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <%= link_to event_path(event.id) do %>
+        <div class="productBox">
+          <div class="productImage clearfix">
+            <h5><%= event.title %></h5>
+          </div>
+          <div class="productCaption clearfix">
+            <h3><%= event.details %></h3>
+            <h3><%= event.place %></h3>
+            <h3><%= event.start_time %></h3>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
