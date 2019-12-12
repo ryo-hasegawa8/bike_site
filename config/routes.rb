@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :events
+  resources :users
+
   root 'root_pages#index'
   get 'root_pages/show'
 
