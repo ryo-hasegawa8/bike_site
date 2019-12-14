@@ -3,7 +3,8 @@ Faker::Config.locale = :ja
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
-  User.create!(email: email,
+  User.create!(username: name,
+               email: email,
                password:              password,
                password_confirmation: password)
 end
