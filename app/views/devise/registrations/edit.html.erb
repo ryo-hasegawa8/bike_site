@@ -18,11 +18,6 @@
   <% end %>
 
   <div class="form-group">
-    <label for="formGroupExampleInput"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></label>
-    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "現在のパスワード"%>
-  </div>
-
-  <div class="form-group">
     <label for="formGroupExampleInput"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></label>
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "新しいパスワード"%>
     <% if @minimum_password_length %>

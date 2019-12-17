@@ -5,29 +5,41 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.find(params[:id])
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      log_in @user
+      flash[:success] = "Welcome to the Circle of Bike!"
+      redirect_to @user
+    else
+      render 'new'
+    end
+  end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @user = User.find(current_user.id)
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @user = User.find(current_user.id)
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -38,7 +50,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  private
+  #ストロングパラメーター
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :introduce, :image )
+  end
+
+  protected
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
