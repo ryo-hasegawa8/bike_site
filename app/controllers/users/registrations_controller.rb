@@ -6,14 +6,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @user = User.find(params[:id])
+    @user = User.new
   end
 
   # POST /resource
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
+      # log_in @user
       flash[:success] = "Welcome to the Circle of Bike!"
       redirect_to @user
     else

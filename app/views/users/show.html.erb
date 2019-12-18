@@ -1,9 +1,9 @@
 <p><%= @user.username %></p>
 <p><%= @user.email %></p>
-<p><%= @user.image %></p>
+<div class="picture-in-userpage">
+  <%= image_tag @user.image,class: "img-fluid" ,alt: "Responsive image"%>
+</div>
 <p><%= @user.description %></p>
-
-
 <button type="button" class="btn btn-primary">
   <%= link_to "プロフィールを変更する", edit_user_registration_path(@user.id) %>
 </button>
