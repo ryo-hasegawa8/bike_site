@@ -58,9 +58,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   #ストロングパラメーター
-  # def user_params
-  #   params.require(:user).permit(:username, :email, :password, :password_confirmation, :introduce, :image )
-  # end
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :introduce, :image )
+  end
 
   protected
   def update_resource(resource, params)
