@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  # before_action :user_signed_in, only: [:edit, :update]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -13,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
-      # log_in @user
+      log_in @user
       flash[:success] = "Welcome to the Circle of Bike!"
       redirect_to @user
     else
@@ -23,7 +24,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    @user = User.find(current_user.id)
+    p "hogehoge"
+    p "hogehoge"
+    p "hogehoge"
+    p "hogehoge"
+    @user = User.find(params[:id])
+
   end
 
   # PUT /resource
@@ -52,9 +58,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   #ストロングパラメーター
-  def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :introduce, :image )
-  end
+  # def user_params
+  #   params.require(:user).permit(:username, :email, :password, :password_confirmation, :introduce, :image )
+  # end
 
   protected
   def update_resource(resource, params)
@@ -67,9 +73,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
