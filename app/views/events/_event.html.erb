@@ -1,6 +1,6 @@
 <li id="event-<%= event.id %>">
+  <span class="event_title"><%= link_to event.title, event_path(event.id) %></span>
   <span class="user"><%= link_to event.user.username, event.user %></span>
-  <span class="event_title"><%= event.title %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(event.created_at) %> ago.
   </span>

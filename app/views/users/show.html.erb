@@ -8,9 +8,10 @@
   <%= link_to "プロフィールを変更する", edit_user_registration_path(@user) %>
 </button>
 
-<div class="col-md-8">
+<div class="col-md-12 event_list_of_user">
+  <%= link_to "イベントを作成する", new_event_path, class: "btn btn-primary btn-lg btn-block" %>
   <% if @user.events.any? %>
-    <h3>Microposts (<%= @user.events.count %>)</h3>
+    <h3>Events (<%= @user.events.count %>)</h3>
     <ol class="events">
       <%= render @events %>
     </ol>
