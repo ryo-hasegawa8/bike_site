@@ -1,6 +1,23 @@
+<% if current_user == @event.user %>
+  <button type="button" class="btn btn-primary">
+    <%= link_to "イベントを編集する", edit_event_path(@event) %>
+  </button>
+<% end %>
 <h2><%= @event.title %></h2>
+<% if @event.image.presence %>
+  <p>
+    <strong>Picture</strong>
+    <%= image_tag @event.image_url ,class: "img-fluid", alt: "image"%>
+  </p>
+<% end %>
 <p><%= @event.details %></p>
 <p><%= @event.place %></p>
 <p><%= @event.start_time %></p>
+<p><%= @event.user.username %></p>
 
 <button type="button" class="btn btn-primary">イベントに参加する</button>
+
+<% if current_user == @event.user %>
+  <%= link_to "delete", @event, method: :delete,
+                                   data: { confirm: "You sure?" } %>
+<% end %>

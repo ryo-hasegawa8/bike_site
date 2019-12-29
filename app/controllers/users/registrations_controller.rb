@@ -29,7 +29,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     p "hogehoge"
     p "hogehoge"
     @user = User.find(params[:id])
-
   end
 
   # PUT /resource
@@ -57,12 +56,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   private
-  #ストロングパラメーター
+
+  # ストロングパラメーター
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :introduce, :image )
+    params.require(:user).permit(:username, :email, :password,
+                                 :password_confirmation, :introduce, :image)
   end
 
   protected
+
   def update_resource(resource, params)
     resource.update_without_password(params)
   end

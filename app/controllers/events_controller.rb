@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :user_signed_in?, only: [:edit, :update, :new, :create]
+  before_action :user_signed_in?, only: [:update, :create]
+  before_action :correct_user, only: [:destroy]
   def show
     @event = Event.find_by(id: params[:id])
   end
@@ -16,12 +17,36 @@ class EventsController < ApplicationController
     else
       render 'new'
     end
+  end
+  def edit
+    @event = Event.find(params[:id])
+  end
 
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(event_params)
+      flash[:success] = "イベントがアップデートされました"
+      redirect_to @event
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @event.destroy
+    flash[:success] = "イベントが削除されました"
+    redirect_to user_path(current_user.id)
   end
 
   private
-    #ストロングパラメーター
-    def event_params
-      params.require(:event).permit(:title, :details, :start_time, :place, :image )
-    end
+
+  # ストロングパラメーター
+  def event_params
+    params.require(:event).permit(:title, :details, :start_time, :place, :image)
+  end
+
+  def correct_user
+    @event = current_user.events.find_by(id: params[:id])
+    redirect_to user_path(current_user.id) if @event.nil?
+  end
 end
