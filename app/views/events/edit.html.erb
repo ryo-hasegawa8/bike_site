@@ -1,0 +1,25 @@
+<h1>イベント編集</h1>
+
+<%= form_for(@event)  do |f| %>
+  <div class="form-group">
+    <label for="eventFormTextField1">イベントタイトル</label>
+    <%= f.text_field :title, class: "form-control",autocomplete: "title" %>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea２">イベント詳細</label>
+    <%= f.text_area :details, class: "form-control", autocomplete: "details", rows: "3"%>
+  </div>
+  <div class="form-group">
+    <label for="eventFormTextField2">集合場所</label>
+    <%= f.text_field :place, class: "form-control",autocomplete: "place"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <label for="eventFormTextField3">イベント開催時間</label>
+    <%= f.text_field :start_time, class: "form-control"%>
+  </div>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

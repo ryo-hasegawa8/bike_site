@@ -1,2 +1,28 @@
+<<<<<<< HEAD
 <h1>Users#show</h1>
 <p>メールアドレス : <%= @user.email %></p>
+=======
+<p><%= @user.username %></p>
+<p><%= @user.email %></p>
+<% if @user.image.presence %>
+  <p>
+    <strong>Picture</strong>
+    <%= image_tag @user.image_url ,class: "img-fluid", alt: "image"%>
+  </p>
+<% end %>
+<p><%= @user.description %></p>
+<button type="button" class="btn btn-primary">
+  <%= link_to "プロフィールを変更する", edit_user_registration_path(@user) %>
+</button>
+
+<div class="col-md-12 event_list_of_user">
+  <%= link_to "イベントを作成する", new_event_path, class: "btn btn-primary btn-lg btn-block" %>
+  <% if @user.events.any? %>
+    <h3>Events (<%= @user.events.count %>)</h3>
+    <ol class="events">
+      <%= render @events %>
+    </ol>
+    <%= will_paginate @events %>
+  <% end %>
+</div>
+>>>>>>> event_page

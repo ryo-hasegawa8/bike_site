@@ -5,10 +5,25 @@ body {
   padding: 0,60px;
   text-align: center;
 }
+$gray-medium-light: #eaeaea;
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
 
 // event page
-main {
-    padding-top: 72px;
+main .container {
+    padding-top: 130px;
     padding-bottom: 56px;
 }
 .r_event_content :hover{
@@ -58,6 +73,7 @@ footer ul li {
   float: left;
   margin-left: 30px;
 }
+<<<<<<< HEAD
 // main section of root_page
 .main-event-lists {
   margin: 30px 0 30px;;
@@ -65,4 +81,45 @@ footer ul li {
 .page-header{
   margin-top: 50px;
   padding: 30px;
+=======
+
+// user_page
+.btn-primary > a{
+  color: #FFF;
+}
+.btn-primary > a:hover{
+  text-decoration: none;
+}
+.picture-in-userpage > img{
+  width: 90vw;
+  box-sizing: border-box;
+}
+.events {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.event_title {
+  display: block;
+  margin-left: 60px;
+  // img {
+  //   display: block;
+  //   padding: 5px 0;
+  // }
+}
+.timestamp {
+  color: $gray-medium-light;
+  display: block;
+  margin-left: 60px;
+}
+
+.event_list_of_user {
+  margin-top: 50px;
+  h3 {
+    margin: 20px;
+  }
+>>>>>>> event_page
 }

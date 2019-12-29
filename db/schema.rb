@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20191211135324) do
+=======
+ActiveRecord::Schema.define(version: 20191228014649) do
+>>>>>>> event_page
 
   create_table "events", force: :cascade do |t|
     t.text "title"
@@ -36,7 +40,12 @@ ActiveRecord::Schema.define(version: 20191211135324) do
     t.string "provider"
     t.string "uid"
     t.string "username"
+<<<<<<< HEAD
     t.string "avatar"
+=======
+    t.string "image"
+    t.text "description"
+>>>>>>> event_page
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

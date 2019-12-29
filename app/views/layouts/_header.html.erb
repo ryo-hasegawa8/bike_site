@@ -10,15 +10,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-              <li class="nav-link"><strong><%= link_to current_user.username, root_path %></strong></li>
-              <li class="nav-link"><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+              <li class="nav-link">
+                <%= gravatar_for current_user %>
+                <strong><%= link_to current_user.username, user_path(current_user.id) %></strong>
+              </li>
+              <li class="nav-link"><%= link_to 'プロフィール変更', edit_user_registration_path(current_user) %></li>
               <li class="nav-link"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
           <% else %>
               <li class="nav-link"><%= link_to 'サインアップ', new_user_registration_path %></li>
               <li class="nav-link"><%= link_to 'ログイン', new_user_session_path %></li>
           <% end %>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Events</a>
+          <li class="nav-link">
+            <%= link_to 'イベントを作成する', new_event_path %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

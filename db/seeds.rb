@@ -1,9 +1,13 @@
 Faker::Config.locale = :ja
-100.times do |n|
+50.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
+  description = Faker::Lorem.sentence(word_count: 10)
   password = "password"
-  User.create!(email: email,
+  User.create!(username: name,
+               email: email,
+               image: open("#{Rails.root}/assets/images/bikepic1.jpg"),
+               description: description,
                password:              password,
                password_confirmation: password)
 end
