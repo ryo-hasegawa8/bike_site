@@ -2,7 +2,9 @@ class EventsController < ApplicationController
   before_action :user_signed_in?, only: [:update, :create]
   before_action :correct_user, only: [:destroy]
   def show
-    @event = Event.find_by(id: params[:id])
+    @event = Event.find(params[:id])
+    @comments = @event.comments.paginate(page: params[:page])
+    @comment = Comment.new
   end
 
   def new

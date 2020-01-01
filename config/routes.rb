@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions',
     :registrations => 'users/registrations',
   }
-  resources :events
+  resources :events do
+    resources :comments, only: [:create]
+  end
   resources :users, only: [:show]
 
   root 'root_pages#index'

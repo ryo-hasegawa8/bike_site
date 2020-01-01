@@ -6,7 +6,7 @@ Faker::Config.locale = :ja
   password = "password"
   User.create!(username: name,
                email: email,
-               image: open("#{Rails.root}/assets/images/bikepic1.jpg"),
+               image: open("#{Rails.root}/app/assets/images/bikepic1.jpg"),
                description: description,
                password:              password,
                password_confirmation: password)
