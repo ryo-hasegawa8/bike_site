@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
+    @event.start_time.to_time
     if @event.save
       flash[:success] = "イベントが作成されました！"
       redirect_to user_path(current_user)
@@ -20,6 +21,7 @@ class EventsController < ApplicationController
       render 'new'
     end
   end
+
   def edit
     @event = Event.find(params[:id])
   end

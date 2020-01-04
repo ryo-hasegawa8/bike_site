@@ -7,6 +7,9 @@ end
 
 gem 'rails', '~> 5.1.7'
 gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'momentjs-rails'
+gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth-twitter'
