@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @comments = @event.comments.paginate(page: params[:page])
     @comment = Comment.new
+    @attendance = Attendance.new
   end
 
   def new
