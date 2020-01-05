@@ -6,7 +6,11 @@
       <li id="event-<%= event.id %>">
         <span class="event_title"><%= link_to event.title, event_path(event.id) %></span>
         <span class="user"><%= link_to event.user.username, event.user %></span>
-        <span class="image"><%= link_to event.image, event_path(event.id)%></span>
+        <% if event.image.presence %>
+          <p>
+            <%= image_tag event.image_url ,class: "img-fluid", alt: "image"%>
+          </p>
+        <% end %>
         <span class="image"><%= event.start_time%></span>
         <span class="timestamp">
           Posted <%= time_ago_in_words(event.created_at) %> ago.
@@ -14,6 +18,6 @@
       </li>
     </ol>
     <% end %>
-    <%= will_paginate @events %>
+    <%= will_paginate events %>
   <% end %>
 </div>

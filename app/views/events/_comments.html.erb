@@ -1,14 +1,16 @@
-<% if @event.comments.any? %>
-  <h3>Comments (<%= @event.comments.count %>)</h3>
-  <ol class="comment">
-    <%= render @comments%>
-  </ol>
-  <%= will_paginate @comments %>
-<% end %>
-<%= form_for [@event, @comment] do |f| %>
-<%= p @event.id %>
-  <%= f.text_field :content %>
-  <%= f.hidden_field :event_id, value: @event.id %>
-  <br>
-  <%= f.submit 'コメントする' %>
-<% end %>
+<div class="col-md-9 col-sm-8 col-xs-12 comments_list">
+  <% if event.comments.any? %>
+    <h3>Comments (<%= event.comments.count %>)</h3>
+    <ol class="comment">
+      <%= render comments%>
+    </ol>
+    <%= will_paginate comments %>
+  <% end %>
+  <%= form_for [event, comment] do |f| %>
+  <%= p event.id %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :event_id, value: event.id %>
+    <br>
+    <%= f.submit 'コメントする' %>
+  <% end %>
+</div>

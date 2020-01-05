@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     @event.start_time.to_time
     if @event.save
       flash[:success] = "イベントが作成されました！"
+      @event.attendances.create(user_id: current_user.id)
       redirect_to user_path(current_user)
     else
       render 'new'
