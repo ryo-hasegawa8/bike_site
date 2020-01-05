@@ -14,7 +14,7 @@
                 <%= gravatar_for current_user %>
                 <strong><%= link_to current_user.username, user_path(current_user.id) %></strong>
               </li>
-              <li class="nav-link"><%= link_to 'プロフィール変更', edit_user_registration_path(current_user) %></li>
+              <li class="nav-link"><%= link_to 'プロフィール変更', edit_user_registration_path(current_user.id) %></li>
               <li class="nav-link"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
           <% else %>
               <li class="nav-link"><%= link_to 'サインアップ', new_user_registration_path %></li>

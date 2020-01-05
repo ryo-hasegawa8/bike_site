@@ -17,9 +17,22 @@
     <%= f.label :image %>
     <%= f.file_field :image, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <label for="eventFormTextField3">イベント開催時間</label>
-    <%= f.text_field :start_time, class: "form-control"%>
+  <div class="row">
+      <div class="col-sm-6">
+          <div class="form-group">
+              <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                  <%= f.text_field :start_time, class: "form-control datetimepicker-input", id: "start_time", data: {toggle: "datetimepicker", target: "#start_time"} %>
+                  <div class="input-group-append" data-target="#start_time" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#datetimepicker1').datetimepicker();
+          });
+      </script>
   </div>
-  <%= f.submit class: "btn btn-primary" %>
+  <%= f.submit "イベントを作成する", class: "btn btn-primary" %>
 <% end %>

@@ -1,0 +1,23 @@
+<div class="col-md-9 col-sm-8 col-xs-12 event_list">
+  <% if events.any? %>
+    <h3>イベント一覧 (<%= events.count %>)</h3>
+    <% events.each do |event|  %>
+    <ol class="events">
+      <li id="event-<%= event.id %>">
+        <span class="event_title"><%= link_to event.title, event_path(event.id) %></span>
+        <span class="user"><%= link_to event.user.username, event.user %></span>
+        <% if event.image.presence %>
+          <p>
+            <%= image_tag event.image_url ,class: "img-fluid", alt: "image"%>
+          </p>
+        <% end %>
+        <span class="image"><%= event.start_time%></span>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(event.created_at) %> ago.
+        </span>
+      </li>
+    </ol>
+    <% end %>
+    <%= will_paginate events %>
+  <% end %>
+</div>

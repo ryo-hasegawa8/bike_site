@@ -11,16 +11,39 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20191211135324) do
 =======
 ActiveRecord::Schema.define(version: 20191228014649) do
+>>>>>>> event_page
+=======
+ActiveRecord::Schema.define(version: 20200105032946) do
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_attendances_on_event_id"
+    t.index ["user_id"], name: "index_attendances_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "event_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 >>>>>>> event_page
 
   create_table "events", force: :cascade do |t|
     t.text "title"
     t.text "details"
     t.text "place"
-    t.time "start_time"
+    t.text "start_time"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

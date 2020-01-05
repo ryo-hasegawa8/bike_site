@@ -10,7 +10,10 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions',
     :registrations => 'users/registrations',
   }
-  resources :events
+  resources :events do
+    resources :comments, only: [:create]
+    resources :attendances, only: [:create, :destroy]
+  end
   resources :users, only: [:show]
 >>>>>>> event_page
 

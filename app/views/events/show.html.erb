@@ -20,11 +20,27 @@
 <p><%= @event.place %></p>
 <p><%= @event.start_time %></p>
 <p><%= @event.user.username %></p>
-
-<button type="button" class="btn btn-primary">イベントに参加する</button>
+<% unless @event.user_id == current_user.id then %>
+  <% if current_user.already_attended?(@event) %>
+    <button type="button" class="btn btn-secondary">
+      <%= link_to "イベント参加を取り消す", event_attendance_path(params[:id]), method: :delete %>
+    </button>
+  <% else %>
+    <button type="button" class="btn btn-primary">
+      <%= link_to "イベントに参加する", event_attendances_path(params[:id]), method: :create %>
+    </button>
+  <% end %>
+<% end %>
 
 <% if current_user == @event.user %>
   <%= link_to "delete", @event, method: :delete,
                                    data: { confirm: "You sure?" } %>
 <% end %>
+<<<<<<< HEAD
+>>>>>>> event_page
+=======
+<div class="row">
+  <%= render "comments", event: @event,comments: @comments, comment: @comment %>
+  <%= render "participants", event: @event %>
+</div>
 >>>>>>> event_page

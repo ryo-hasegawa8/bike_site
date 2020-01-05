@@ -1,5 +1,7 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "font-awesome";
+@import "tempusdominus-bootstrap-4.css";
 // Universal
 body {
   padding: 0,60px;
@@ -84,10 +86,16 @@ footer ul li {
 =======
 
 // user_page
-.btn-primary > a{
+.btn-primary > a {
   color: #FFF;
 }
-.btn-primary > a:hover{
+.btn-primary > a:hover {
+  text-decoration: none;
+}
+.btn-secondary > a {
+  color: #FFF;
+}
+.btn-secondary > a:hover {
   text-decoration: none;
 }
 .picture-in-userpage > img{

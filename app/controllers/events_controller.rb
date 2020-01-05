@@ -6,7 +6,10 @@ class EventsController < ApplicationController
   before_action :user_signed_in?, only: [:update, :create]
   before_action :correct_user, only: [:destroy]
   def show
-    @event = Event.find_by(id: params[:id])
+    @event = Event.find(params[:id])
+    @comments = @event.comments.paginate(page: params[:page])
+    @comment = Comment.new
+    @attendance = Attendance.new
   end
 
   def new
@@ -15,13 +18,16 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
+    @event.start_time.to_time
     if @event.save
       flash[:success] = "イベントが作成されました！"
+      @event.attendances.create(user_id: current_user.id)
       redirect_to user_path(current_user)
     else
       render 'new'
     end
   end
+
   def edit
     @event = Event.find(params[:id])
   end

@@ -1,0 +1,7 @@
+<div class="col-md-3 col-sm-4 col-xs-12 participants_list">
+  <h2>参加者(<%= event.attendances.count %>)</h2>
+  <% event.participants.each do |user| %>
+    <li><%= user.username %></li>
+    <hr>
+  <% end %>
+</div>
