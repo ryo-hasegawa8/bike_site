@@ -14,11 +14,7 @@ end
 
 
 users = User.order(:created_at).take(6)
-<<<<<<< HEAD
-100.times do |n|
-=======
 25.times do
->>>>>>> event_page
   title  = Faker::Lorem.sentence(word_count: 3)
   details = Faker::Lorem.sentence(word_count: 10)
   place = Faker::Address.full_address

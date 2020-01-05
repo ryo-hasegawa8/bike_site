@@ -1,8 +1,4 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
-  def show
-    @user = User.find(params[:id])
-=======
   before_action :user_signed_in?, only: [:update]
 
   def show
@@ -24,6 +20,5 @@ class UsersController < ApplicationController
       flash[:danger] = "Please log in."
       redirect_to login_url
     end
->>>>>>> event_page
   end
 end

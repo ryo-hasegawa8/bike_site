@@ -1,8 +1,4 @@
 class EventsController < ApplicationController
-<<<<<<< HEAD
-  def show
-    @event = Event.find(params[:id])
-=======
   before_action :user_signed_in?, only: [:update, :create]
   before_action :correct_user, only: [:destroy]
   def show
@@ -58,6 +54,5 @@ class EventsController < ApplicationController
   def correct_user
     @event = current_user.events.find_by(id: params[:id])
     redirect_to user_path(current_user.id) if @event.nil?
->>>>>>> event_page
   end
 end

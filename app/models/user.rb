@@ -10,6 +10,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:twitter]
 
   def already_attended?(event)
-   self.attendances.exists?(event_id: event.id)
+    attendances.exists?(event_id: event.id)
   end
 end
